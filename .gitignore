@@ -1,6 +1,7 @@
 # 1. Bỏ qua file rác của Backend (Node.js)
 backend/node_modules/
-backend/.env
+backend/.env 
+# File chứa thông tin liên quan đến mật khẩu database, không được đưa lên GitHub
 
 # 2. Bỏ qua file rác của Mobile App (Flutter)
 book_app_mobile/.dart_tool/

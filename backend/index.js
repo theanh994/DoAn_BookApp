@@ -15,8 +15,8 @@ app.use(express.json());
 app.use(cors()); // Cho phép App Mobile gọi vào Server này
 
 // 1. KẾT NỐI MONGODB
-// Thay dòng này bằng chuỗi kết nối chuẩn của bạn (nhớ có /BookAppDB)
-const uri = "mongodb+srv://theanht_db_user:tta992004@cluster0.tyafjxu.mongodb.net/BookAppDB?appName=Cluster0";
+require('dotenv').config(); // Dòng này giúp đọc file .env
+const uri = process.env.MONGO_URI; // Lấy mật khẩu từ .env ra
 
 mongoose.connect(uri)
   .then(() => console.log("✅ Đã kết nối MongoDB thành công!"))

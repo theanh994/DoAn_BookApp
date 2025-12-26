@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 
-// Thay đổi dòng bên dưới bằng chuỗi kết nối bạn vừa copy
-// Nhớ thay <db_password> bằng mật khẩu thật (ví dụ 123456)
-const uri = "mongodb+srv://theanht_db_user:tta992004@cluster0.tyafjxu.mongodb.net/?appName=Cluster0"; 
+require('dotenv').config(); // Dòng này giúp đọc file .env
+const uri = process.env.MONGO_URI; // Lấy mật khẩu từ .env ra
 
 async function connectDB() {
   try {

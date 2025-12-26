@@ -1,10 +1,9 @@
-// backend/seed.js
 const mongoose = require('mongoose');
 const User = require('./models/User');
 const Book = require('./models/Book');
 
-// ⚠️ THAY MẬT KHẨU CỦA BẠN VÀO ĐÂY
-const uri = "mongodb+srv://theanht_db_user:tta992004@cluster0.tyafjxu.mongodb.net/BookAppDB?appName=Cluster0";
+require('dotenv').config(); // Dòng này giúp đọc file .env
+const uri = process.env.MONGO_URI; // Lấy mật khẩu từ .env ra
 
 const sampleBooks = [
   {
