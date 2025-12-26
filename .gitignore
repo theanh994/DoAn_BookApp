@@ -1,0 +1,15 @@
+# 1. Bỏ qua file rác của Backend (Node.js)
+backend/node_modules/
+backend/.env
+
+# 2. Bỏ qua file rác của Mobile App (Flutter)
+book_app_mobile/.dart_tool/
+book_app_mobile/.idea/
+book_app_mobile/build/
+book_app_mobile/android/.gradle
+book_app_mobile/ios/.symlinks
+book_app_mobile/ios/Pods/
+
+# 3. Bỏ qua file hệ thống
+.DS_Store
+Thumbs.db
