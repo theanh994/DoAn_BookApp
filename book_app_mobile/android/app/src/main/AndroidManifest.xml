@@ -2,7 +2,7 @@
     package="com.example.book_app_mobile">
     <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:label="book_app_mobile"
+        android:label="Sách của Bạn"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

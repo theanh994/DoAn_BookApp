@@ -1,5 +1,6 @@
 // backend/index.js
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
@@ -8,8 +9,9 @@ const Book = require('./models/Book');
 const User = require('./models/User');
 
 const app = express();
-const PORT = 3000; // Cổng chạy server
-
+const PORT = process.env.PORT || 3000; // Cổng chạy server
+// Cấu hình để phục vụ file tĩnh 
+app.use(express.static(path.join(__dirname, 'public')));
 // Cấu hình Middleware (Để server hiểu được dữ liệu JSON)
 app.use(express.json());
 app.use(cors()); // Cho phép App Mobile gọi vào Server này
