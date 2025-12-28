@@ -30,12 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final url = Uri.parse('${Constants.baseUrl}/books');
 
     try {
-      final response = await http.get(
-          url,
-          headers: {
-          'ngrok-skip-browser-warning': 'true',
-          },
-      );
+      final response = await http.get(url);
 
       print("Trạng thái Server: ${response.statusCode}");
       print("Dữ liệu trả về: ${response.body}");

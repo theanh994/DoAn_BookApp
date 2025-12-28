@@ -29,7 +29,6 @@ class _LoginScreenState extends State<LoginScreen> {
         url,
         headers: {
           'Content-Type': 'application/json; charset=UTF-8', // Thêm charset=UTF-8 cho phép hiển thị tên Tiếng Việt
-          'ngrok-skip-browser-warning': 'true',
         },
         body: jsonEncode({
           "email": _emailController.text,

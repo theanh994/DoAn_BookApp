@@ -82,7 +82,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
         url,
         headers: {
           'Content-Type': 'application/json; charset=UTF-8', // Thêm charset=UTF-8 cho phép hiển thị tên Tiếng Việt
-          'ngrok-skip-browser-warning': 'true',
         },
         body: body,
       );
