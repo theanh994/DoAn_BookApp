@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'models/book.dart';
 import 'detail_screen.dart';
+import 'profile_screen.dart';
+import 'constants.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,11 +25,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Hàm gọi API
   Future<void> fetchBooks() async {
-    // LƯU Ý: Dùng 10.0.2.2 cho máy ảo Android
-    final url = Uri.parse('http://10.0.2.2:3000/api/books');
+    print("--- BẮT ĐẦU GỌI API LẤY SÁCH ---");
+    // final url = Uri.parse('http://10.0.2.2:3000/api/books'); Dùng 10.0.2.2 cho máy ảo Android
+    final url = Uri.parse('${Constants.baseUrl}/books');
 
     try {
-      final response = await http.get(url);
+      final response = await http.get(
+          url,
+          headers: {
+          'ngrok-skip-browser-warning': 'true',
+          },
+      );
+
+      print("Trạng thái Server: ${response.statusCode}");
+      print("Dữ liệu trả về: ${response.body}");
 
       if (response.statusCode == 200) {
         // Nếu thành công, giải mã JSON
@@ -36,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
           books = data.map((json) => Book.fromJson(json)).toList();
           isLoading = false; // Tắt loading
         });
+        print("=> Đã tải được ${books.length} cuốn sách");
       } else {
         print('Lỗi server: ${response.statusCode}');
       }
@@ -53,6 +65,17 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Thư Viện Sách'),
         backgroundColor: Colors.blue,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.person),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
+              );
+            },
+          ),
+        ],
       ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator()) // Hiện vòng xoay nếu đang tải
