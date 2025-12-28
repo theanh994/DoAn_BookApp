@@ -12,6 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3000; // Cổng chạy server
 // Cấu hình để phục vụ file tĩnh 
 app.use(express.static(path.join(__dirname, 'public')));
+
 // Cấu hình Middleware (Để server hiểu được dữ liệu JSON)
 app.use(express.json());
 app.use(cors()); // Cho phép App Mobile gọi vào Server này
@@ -29,9 +30,22 @@ mongoose.connect(uri)
 
 // 2. VIẾT API (CÁC ĐƯỜNG DẪN)
 
-// API 1: Trang chủ (Test xem server sống hay chết)
+// API 1: Trang chủ (Trả về HTML để hiện Icon)
 app.get('/', (req, res) => {
-  res.send('Xin chào! Server BookApp đang chạy ngon lành.');
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Book App Server</title>
+        <!-- Dòng này ép trình duyệt phải lấy icon -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+      </head>
+      <body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
+        <h1>🚀 Server BookApp đang chạy ngon lành!</h1>
+        <p>Được deploy trên Render.</p>
+      </body>
+    </html>
+  `);
 });
 
 // API 2: Lấy danh sách toàn bộ sách
