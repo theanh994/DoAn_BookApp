@@ -36,12 +36,12 @@ app.get('/', (req, res) => {
     <!DOCTYPE html>
     <html>
       <head>
-        <title>Book App Server</title>
+        <title>Sincerely - The Garden</title>
         <!-- Dòng này ép trình duyệt phải lấy icon -->
         <link rel="icon" type="image/x-icon" href="/favicon.ico">
       </head>
       <body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
-        <h1>🚀 Server BookApp đang chạy ngon lành!</h1>
+        <h1>🚀 Server Sincerely - The Garden đang chạy ngon lành!</h1>
         <p>Được deploy trên Render.</p>
       </body>
     </html>
