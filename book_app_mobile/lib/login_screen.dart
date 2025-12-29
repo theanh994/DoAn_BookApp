@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const Icon(Icons.book, size: 80, color: Colors.blue),
             const SizedBox(height: 20),
             const Text(
-              "BOOK APP",
+              "Sincerely - The Garden",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 40),
@@ -118,7 +118,21 @@ class _LoginScreenState extends State<LoginScreen> {
                 );
               },
               child: const Text("Chưa có tài khoản? Đăng ký ngay"),
-            )
+            ),
+            const SizedBox(height: 10),
+            TextButton(
+              onPressed: () {
+                // Chuyển thẳng vào Home mà KHÔNG lưu UserData
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                );
+              },
+              child: const Text(
+                "Bỏ qua đăng nhập (Xem với tư cách Khách)",
+                style: TextStyle(color: Colors.grey, decoration: TextDecoration.underline),
+              ),
+            ),
           ],
         ),
       ),

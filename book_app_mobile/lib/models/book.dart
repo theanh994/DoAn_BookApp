@@ -4,6 +4,7 @@ class Book {
   final String author;
   final int price;
   final String coverImage;
+  final String? description;
 
   Book({
     required this.id,
@@ -11,9 +12,10 @@ class Book {
     required this.author,
     required this.price,
     required this.coverImage,
+    this.description,
   });
 
-  // Hàm này giúp chuyển đổi cục JSON loằng ngoằng thành Object gọn gàng
+  // Hàm chuyển đổi cục JSON rối rắm sang Object gọn gàng
   factory Book.fromJson(Map<String, dynamic> json) {
     return Book(
       id: json['_id'], // MongoDB dùng _id
@@ -21,6 +23,7 @@ class Book {
       author: json['author'] ?? 'Ẩn danh',
       price: json['price'] ?? 0,
       coverImage: json['cover_image'] ?? '',
+      description: json['description'] ?? '',
     );
   }
 }

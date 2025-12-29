@@ -21,4 +21,11 @@ class UserData {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('user_data');
   }
+
+  // Hàm lưu đè thông tin mới (ví dụ sau khi mua sách)
+  static Future<void> updateUser(Map<String, dynamic> newUser) async {
+    final prefs = await SharedPreferences.getInstance();
+    // Giữ lại token cũ hoặc các thông tin hệ thống nếu cần, ở đây thì bắt lưu đè luôn
+    await prefs.setString('user_data', jsonEncode(newUser));
+  }
 }
